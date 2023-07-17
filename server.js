@@ -20,6 +20,11 @@ app.use(express.static('website'));
 
 const port = 3000;
 
+// Routes
+app.get('/projectData', (req, res) => {
+  res.status(200).send(projectData);
+});
+
 
 app.post('/projectData', (req, res) => {
   projectData = {
@@ -27,6 +32,7 @@ app.post('/projectData', (req, res) => {
     temp: req.body.temp,
     content: req.body.content
   };
+  //daisplay data in terminal
   console.log(projectData);
   res.status(200).json({
     success: true,

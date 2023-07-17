@@ -27,7 +27,7 @@ h1{
 .holder input,
 .holder textarea {
   display: block;
-  color: #2d3547;
+  color: #040e25;
   width: 80%;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
@@ -47,18 +47,18 @@ button {
   color: #000000;
   font-size: 14px;
   padding: 6px 16px;
-  border-radius: 15px;
+  
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: none;
-  box-shadow: 2px 4px 5px #242323;
-  cursor: pointer;
+ 
   width: 150px;
   margin: 0 auto;
   text-align: center;
 }
 
 
-.holderCard {
+.entryHolder {
+  background-color: #c2c2ff;
   display: flex;
   align-items: center;
   text-align: center;
