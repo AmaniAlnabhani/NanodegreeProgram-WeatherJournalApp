@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const findButton = document.querySelector('#find');
+  const findButton = document.querySelector('#go');
   findButton.addEventListener('click', handleFindButton);
 });
 
@@ -47,12 +47,13 @@ async function handleFindButton() {
     updateUI();
     
     // Display the entry-holder section
-    const entryHolder = document.querySelector('.holder');
+    const entryHolder = document.querySelector('.holderCard');
     entryHolder.style.display = 'block';
   } catch (error) {
     console.log(error);
-    alert(" Please try again later.");
+    alert("An error occurred. Please try again later.");
   }
+  
 }
 
 
@@ -66,33 +67,39 @@ async function fetchWeatherData(url) {
   }
 }
 
+const updateUI = async ()=>{
+  const requset =await fetch('http://localhost:3000/projectData')
+  try{
+    const allData = await requset.json()
+    console.log(allData);
+    document.getElementById('datetime').innerHTML = allData[0].date;
+    document.getElementById('temperature').innerHTML = allData[0].temp;
+    document.getElementById('content').innerHTML = allData[0].content;
+
+
+  }catch(error){
+    console.log("error", error);
+  }
+
+}
+/*async function updateUI() {
+
+  try{
+    const allData = await getData('http://localhost:3000/projectData');
+    document.getElementById('datetime').innerText = allData.date;
+    document.getElementById('temperature').innerText = allData.temp;
+    document.getElementById('content').innerText = allData.content;
+
+  }catch(error){
+    console.log("error", error);
+  }
+
+}*/
+
 function getCurrentDate() {
   const currentDate = new Date();
   return `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`;
 }
-
-async function updateUI() {
-  const date = document.getElementById('date');
-  const temp = document.getElementById('tempe');
-  const clouds = document.getElementById('clouds');
-  const content = document.getElementById('content');
-  const city = document.getElementById('city');
-  const country = document.getElementById('country');
-
-  try {
-    const data = await getData('http://localhost:3000/projectData');
-
-    date.innerText = data.date;
-    temp.innerText = `${data.temp}°C`;
-
-    content.innerText = data.content;
-  
-  } catch (error) {
-    console.log(error);
-    alert(" updating the UI. Please try again later.");
-  }
-}
-
 function convertToCelsius(temp) {
   return Math.round(temp - 273.15);
 }

@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Weather Journal App</title>
+   
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <h2 class="header">Weather Journal App</h2>
-       </div>
-      <div class="card">
-        <div class="zip-holder">
-          <label >Enter ZIP code:</label>
+    <section >
+      <div >
+        <h1>Weather App</h1>
+        <div class="holder">
+          <label>Enter ZIP code:</label>
           <input type="text" id="zip" placeholder="enter zip code here" />
         </div>
-        <div class="fellingHolder">
+        <div class="holder">
           <label >What do you feel today:</label>
           <textarea id="feeling" placeholder="enter your feeling today"></textarea>
         </div>
-        <div >
-         <button id="find">generate</button>
+        <div class="center">
+          <button id="go">Find Weather</button>
         </div>
-        <div class="holder" style="display: none;">
-          <div class="card2">
-            <h2 class="entry-title">Weather Entry</h2>
-            <div id="entery_holder">
-              <div>
-                <image src="./images/date.png" class="icons"><h3>Date:</h3>
-                <span id="date"></span>
-              </div>
-              <div>
-                <image src="./images/temp.png" class="icons"></image><h3>Temperature:</h3>
-                <span id="temp"></span>
-              </div>
-              <div>
-                <image src="./images/feel.png" class="icons"><h3>Feeling:</h3></image>
-                <span id="content"></span>
-              </div>
-            </div>
+      </div>
+    </section>
+    <section class="holderCard" style="display: none;">
+      <div >
+        <h2 >Weather Entry</h2>
+        <div >
+          <div>
+            <strong>Date:</strong>
+            <span id="datetime"></span>
+          </div>
+          <div>
+            <strong>Temperature:</strong>
+            <span id="temperature"></span>
+          </div>
+          <div>
+            <strong>Content:</strong>
+            <span id="content"></span>
           </div>
         </div>
-        <script src="./app.js"></script>
-
+      </div>
+    </section>
+      <script src="./app.js"></script>
 </body>
 </html>
